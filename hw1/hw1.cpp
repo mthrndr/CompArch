@@ -17,11 +17,11 @@ inline uint64_t rdtsc() {
 
 inline void memtest(int bytes) {
     uint64_t *ticks = (uint64_t *) aligned_alloc(64, REPEAT * sizeof(uint64_t));
-    char *lineBuffer = (char *) aligned_alloc(64, 1<<29);
-    char *lineBufferCopy = (char *) aligned_alloc(64, 1<<29);
+    char *lineBuffer = (char *) aligned_alloc(64, 1<<30);
+    char *lineBufferCopy = (char *) aligned_alloc(64, 1<<30);
     
     // Initialize buffer
-    for (int i = 0; i < 1<<29; i++) {
+    for (int i = 0; i < 1<<30; i++) {
         lineBuffer[i] = '1';
         lineBufferCopy[i] = '0';
     }
