@@ -45,10 +45,6 @@ inline void memtest(int bytes) {
         asm volatile("lfence" ::: "memory"); // serialize following code
         uint64_t end = rdtsc();
         asm volatile("mfence" ::: "memory");  // Wait for flushes to complete
-        // INSERT_YOUR_CODE
-        // Use the lineBuffer in some way, e.g., sum its contents to prevent optimization
-        // INSERT_YOUR_CODE
-        // Read a random byte of lineBufferCopy to prevent optimization
         volatile char tmp = lineBufferCopy[rand() % bytes];
         sumy += tmp;
         
